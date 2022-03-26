@@ -1,3 +1,6 @@
+@import "./css/reset.css";
+@import "./css/fee.css";
+
 .navbar-nav > li{
     padding-left:15px;
     padding-right:15px;
