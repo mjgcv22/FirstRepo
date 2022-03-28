@@ -4,27 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//modules for authentication
-let session = require('express-session');
-let passport = require('passport');
-let passportLocal = require('passport-local');
-let localStrategy = passportLocal.Strategy;
-let flash = require('connect-flash');
-
-// database setup
-let mongoose = require('mongoose');
-let DB = require('./db');
-
-// point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
-
-let mongoDB = mongoose.connection;
-mongoDB.on('error',console.error.bind(console, 'Connection Error:'));
-mongoDB.once('open',()=>
-{
-   console.log('MongoDB is connected');
-});
-
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 
@@ -40,27 +19,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
-
-// setup express session
-app.use(session({
-  secret: "SomeSecret",
-  saveUninitialized: false,
-  resave: false
-}));
-// initialize passport
-app.use(passport.initialize());
-app.use(passport.session());
-
-// create a User Model Instance
-let userModel = require('../../models/user.js');
-let User = userModel.User;
-
-// implement a User Authentication Strategy
-passport.use(User.createStrategy());
-
-// serialize and deserialize the User info
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
