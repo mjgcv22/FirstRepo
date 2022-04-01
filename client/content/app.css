@@ -20,4 +20,13 @@
 footer{
   color:white;
 }
-
+.nav-text{
+  color:white;
+  padding-left:15px;
+  padding-right:15px;
+  padding-top: 10px;
+}
+.clear{
+  clear:both;
+  height:60px;
+}

@@ -29,8 +29,17 @@
             <a class="nav-link" aria-current="page" href="#">Facilities</a>
           </li>
         </ul>
-        <a href = "/login"class="btn btn-success" role="button">Log in</a>
-
+        <% if(typeof username == 'string' && username) { %>
+          
+        <p class="nav-text">
+          <i class="fas fa-lg fa-user"></i> Welcome: <%= username %>
+        </p>
+          <a href="/logout" class="btn btn-danger" role="button"> Logout</a>
+        <% } else { %>
+          <a href = "/login"class="btn btn-success" role="button">Log in</a>
+          <% } %>
+        
+         
       </div>
     </div>
   </nav>

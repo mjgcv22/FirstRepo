@@ -1,34 +1,38 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-//modules for authentication
+//Modules for authentification
 let session = require('express-session');
 let passport = require('passport');
+
+let passportJWT = require('passport-jwt');
+let JWTStrategy = passportJWT.Strategy;
+let ExtractJWT = passportJWT.ExtractJwt;
+
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
+
 let flash = require('connect-flash');
 
-// database setup
+// import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
-let DB = require('./db');
-
-// point mongoose to the DB URI
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
+// URI
+let DB = require('./db')
+mongoose.connect(process.env.URI || DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 let mongoDB = mongoose.connection;
-mongoDB.on('error',console.error.bind(console, 'Connection Error:'));
-mongoDB.once('open',()=>
-{
-   console.log('MongoDB is connected');
+mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
+mongoDB.once('open', ()=> {
+  console.log("Connected to MongoDB...");
 });
 
-var indexRouter = require('../routes/index');
-var usersRouter = require('../routes/users');
+let indexRouter = require('../routes/index');
+let usersRouter = require('../routes/users');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, '../views'));
@@ -41,26 +45,32 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
-// setup express session
+//setup express session 
 app.use(session({
-  secret: "SomeSecret",
+  secret:"SomeSecrete",
   saveUninitialized: false,
   resave: false
 }));
-// initialize passport
+
+//Initialize flash 
+app.use(flash());
+
+// Initialize passport
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); 
 
-// create a User Model Instance
-let userModel = require('../../models/user.js');
-let User = userModel.User;
+// create a User Model Instance 
+let userModel = require('../models/user');
+let User= userModel.User;
 
-// implement a User Authentication Strategy
+// implement a User Authentication strategy 
 passport.use(User.createStrategy());
 
-// serialize and deserialize the User info
+// serialize and deserialize the user info
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
