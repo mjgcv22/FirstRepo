@@ -48,9 +48,10 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 //setup express session 
 app.use(session({
   secret:"SomeSecrete",
-  saveUninitialized: false,
-  resave: false
-}));
+  saveUninitialized: true,
+  resave: true,
+  cookie: { secure: false, maxAge: 14400000 }
+})); app.use(flash());
 
 //Initialize flash 
 app.use(flash());
