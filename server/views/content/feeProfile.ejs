@@ -13,11 +13,19 @@
         <a style="color: #081974" id="customerProfile" aria-current="page" href="/feeProfile"><i class="fa-solid fa-address-card"></i>Customer Profiles</a>
     </nav>
     <div class="addCustomer">
+        <% if(typeof username == 'string' && username) { %>
         <button>Add Customer</button>
         <ul>
             <li><a href="">Customer 1</a></li>
             <li><a href="">Customer 2</a></li>
         </ul>
+    <%} else {%>
+        <ul>
+            <li><h4>Customers List</h4></li>
+            <li><a href="">Customer 1</a></li>
+            <li><a href="">Customer 2</a></li>
+        </ul>
+   <% } %>
     </div>
     <div class="customerContent">
         <h2>New Customer Information</h2>
