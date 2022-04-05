@@ -3,6 +3,11 @@
 @import "./css/feeProfile.css";
 @import "./css/login.css";
 
+
+html, body{
+  height: 100%; 
+} 
+
 .navbar-nav > li{
     padding-left:15px;
     padding-right:15px;
@@ -19,6 +24,7 @@
 }
 footer{
   color:white;
+  position: absolute;
 }
 .nav-text{
   color:white;
@@ -26,7 +32,15 @@ footer{
   padding-right:15px;
   padding-top: 10px;
 }
-.clear{
-  clear:both;
-  height:60px;
+/* .clear{
+  /* clear:both;
+  height:60px; 
+  background-color: blueviolet;
+} */
+.container1{
+  height: 100%;
 }
+/* 
+.feeContainer{
+  height: 100%;
+} */

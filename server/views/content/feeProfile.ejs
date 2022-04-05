@@ -1,5 +1,5 @@
 <!-- for fee menu Btn and CSS-->
-<div class="feeContainer">
+<div class="feeContainer" id="wrapper">
     <nav id="nav">
         <div id="head">
             <div>FEE</div>
@@ -14,7 +14,7 @@
     </nav>
     <div class="addCustomer">
         <% if(typeof username == 'string' && username) { %>
-        <button>Add Customer</button>
+        <button id="addBtn">Add Customer</button>
         <ul>
             <li><a href="">Customer 1</a></li>
             <li><a href="">Customer 2</a></li>
@@ -27,11 +27,11 @@
         </ul>
    <% } %>
     </div>
-    <div class="customerContent">
+    <div class="customerContent" id="toDisplay" style="display: none;" onclick="toDisplay">
         <h2>New Customer Information</h2>
         <div>
             <label for="customerName">Customer Name: </label>
-            <input type="text" placeholder="Customer Name">
+            <input type="text" placeholder=" Customer Name">
         </div>
         <div class="infoContainer">
             <p class="infoTitle">General:</p>
@@ -58,8 +58,66 @@
                     <input type="file" id="ex_file">      
                 </div>  
             </form>
-
+            <p class="infoTitle">Drill/Rout</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Process</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Soldermask / Silkscreen</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Process Engineering</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Assembly</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Quality</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
+            <p class="infoTitle">Pack & Ship</p>
+            <form action="">
+                <textarea name="" id=""></textarea>
+                <div class="filebox">
+                    <label for="ex_file">Attach</label>
+                    <input type="file" id="ex_file">      
+                </div>  
+            </form>
         </div>
+        <div id="saveAndcancelBtn">
+            <button>Save</button>
+            <button>Cancel</button>
         </div>
     </div>
 </div>

@@ -37,15 +37,17 @@ li a{
     /* size */
     --size-border-radius: 4px;
 }
-
+.container1{
+    height: 100%;
+}
 .feeContainer{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
-
+    height: 100%;
 }
+
 
 /* flex % */
 /* .feeSideBar{
@@ -90,9 +92,11 @@ li a{
     margin-left: 25px;
 }
 
+
 /* customer information */
 .customerContent{
     width: 50%;
+    /* height: 100vh; */
     margin: 25px 0 0 25px;
 }
 .customerContent h2{
@@ -115,6 +119,7 @@ form{
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 30px;
 }
 .filebox label {
     display: inline-block;
@@ -154,4 +159,28 @@ form{
 .infoTitle{
     margin-top: 10px;
     margin-bottom: 0;
+}
+#saveAndcancelBtn{
+    margin-bottom: 200px;
+    margin-right: 75px;
+    text-align: right;
+
+}
+#saveAndcancelBtn button{
+    width: 100px;
+    height: 30px;
+    background-color: var(--color-light-white);
+    border: 2px solid var(--color-blue);
+    border-radius: var(--size-border-radius);
+    color: var(--color-blue);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    padding-top: 8px 12px;
+    margin-bottom: 5px;
+}
+#saveAndcancelBtn button:hover{
+    color:var(--color-light-white);
+    background-color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+    border-radius: var(--size-border-radius);
 }

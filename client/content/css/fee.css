@@ -46,7 +46,7 @@ li a{
 #nav{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     width: 300px;
     display: block;
     background-color: #151525;
