@@ -11,6 +11,8 @@ function displayAdd(){
     // console.log("click");
     
     // bugs navbar ----will fix!!!
+    let container1Tag = document.getElementsByClassName('container1');
+    $('.container1').height(2381.46);
     // let body = document.body, html = document.documentElement;
     // body.style.height = 'inherit';
 
