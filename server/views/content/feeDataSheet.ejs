@@ -12,9 +12,12 @@
         <a aria-current="page" href="/feeProfile"><i class="fa-solid fa-address-card"></i>Customer Profiles</a>
     </nav>
     <div class="addCustomer">
-        <button>Add Datasheets</button>
+        <% if(typeof username == 'string' && username) { %>
+        <button  id="addBtn">Add Datasheets</button>
+        <% } %>
     </div>
-    <div class="customerContent">
+
+    <div class="customerContent" id="toDisplay" style="display: none;" onclick="toDisplay">
         <h2>New DataSheet Information</h2>
         <div>
             <label for="customerName"> Datasheet Name: </label>
