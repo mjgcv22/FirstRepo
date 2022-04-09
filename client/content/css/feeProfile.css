@@ -1,15 +1,18 @@
 /* global */
-ol, ul {
-	list-style: none;
+
+ol,
+ul {
+    list-style: none;
 }
-li a{
+
+li a {
     color: inherit;
     text-decoration: none;
-  }
+}
 
-:root{
+:root {
     /* Color */
-    --color-white:#ffffff;
+    --color-white: #ffffff;
     --color-light-white: #eeeeee;
     --color-dark-white: #bdbdbd;
     --color-pink: #fe918d;
@@ -21,26 +24,25 @@ li a{
     --color-blue: #081974;
     --color-yellow: #fff7d1;
     --color-orange: #EF6C35;
-
     /* Font size */
     --font-large: 48px;
     --font-medium: 28px;
     --font-regular: 18px;
     --font-small: 16px;
-    --font-micro: 14px; 
-
+    --font-micro: 14px;
     /* Font weight */
     --weight-bold: 700;
     --weight-semi-bold: 600;
     --weight-regular: 400;
-
     /* size */
     --size-border-radius: 4px;
 }
-.container1{
+
+.container1 {
     height: 100%;
 }
-.feeContainer{
+
+.feeContainer {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -50,6 +52,8 @@ li a{
 
 
 /* flex % */
+
+
 /* .feeSideBar{
     width: 20%;
 }
@@ -60,17 +64,22 @@ li a{
     width: 50%;
 } */
 
+
 /* sideBar */
-#customerProfile{
+
+#customerProfile {
     background-color: var(--color-light-white);
 }
 
+
 /* add customer */
-.addCustomer{
+
+.addCustomer {
     margin: 25px 0 0 25px;
     width: 300px;
 }
-.addCustomer button{
+
+.addCustomer button {
     width: 200px;
     height: 40px;
     background-color: var(--color-light-white);
@@ -82,28 +91,33 @@ li a{
     padding-top: 8px 12px;
     margin-bottom: 5px;
 }
-.addCustomer button:hover{
-    color:var(--color-light-white);
+
+.addCustomer button:hover {
+    color: var(--color-light-white);
     background-color: var(--color-blue);
     border: 2px solid var(--color-blue);
     border-radius: var(--size-border-radius);
 }
-.addCustomer ul{
+
+.addCustomer ul {
     margin-left: 25px;
 }
 
 
 /* customer information */
-.customerContent{
+
+.customerContent {
     width: 50%;
     /* height: 100vh; */
     margin: 25px 0 0 25px;
 }
-.customerContent h2{
+
+.customerContent h2 {
     font-weight: var(--weight-bold);
     margin-bottom: 30px;
 }
-textarea{
+
+textarea {
     width: 100%;
     height: 150px;
     padding: 12px 20px;
@@ -114,13 +128,15 @@ textarea{
     font-size: 16px;
     resize: none;
 }
-form{
+
+form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 30px;
 }
+
 .filebox label {
     display: inline-block;
     padding: .5em .75em;
@@ -135,18 +151,18 @@ form{
     -webkit-transition: background-color 0.2s;
     transition: background-color 0.2s;
     margin-left: 5px;
-  }
-  
-  .filebox label:hover {
-    color:var(--color-blue);
+}
+
+.filebox label:hover {
+    color: var(--color-blue);
     background-color: var(--color-light-white);
-  }
-  
-  .filebox label:active {
+}
+
+.filebox label:active {
     background-color: var(--color-blue);
-  }
-  
-  .filebox input[type="file"] {
+}
+
+.filebox input[type="file"] {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -155,18 +171,20 @@ form{
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
-  }
-.infoTitle{
+}
+
+.infoTitle {
     margin-top: 10px;
     margin-bottom: 0;
 }
-#saveAndcancelBtn{
+
+#saveAndcancelBtn {
     margin-bottom: 200px;
     margin-right: 75px;
     text-align: right;
-
 }
-#saveAndcancelBtn button{
+
+#saveAndcancelBtn button {
     width: 100px;
     height: 30px;
     background-color: var(--color-light-white);
@@ -178,8 +196,30 @@ form{
     padding-top: 8px 12px;
     margin-bottom: 5px;
 }
-#saveAndcancelBtn button:hover{
-    color:var(--color-light-white);
+
+#saveAndcancelBtn button:hover {
+    color: var(--color-light-white);
+    background-color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+    border-radius: var(--size-border-radius);
+}
+
+input[type='button'] {
+    width: 100px;
+    height: 30px;
+    background-color: var(--color-light-white);
+    border: 2px solid var(--color-blue);
+    border-radius: var(--size-border-radius);
+    color: var(--color-blue);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    text-align: center;
+    padding-top: 8px 12px;
+    margin-bottom: 5px;
+}
+
+input[type='button']:hover {
+    color: var(--color-light-white);
     background-color: var(--color-blue);
     border: 2px solid var(--color-blue);
     border-radius: var(--size-border-radius);

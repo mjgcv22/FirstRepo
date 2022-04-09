@@ -14,20 +14,23 @@
     </nav>
     <div class="addCustomer">
         <% if(typeof username == 'string' && username) { %>
-        <button id="addBtn">Add Customer</button>
-        <ul>
-            <li><a href="">Customer 1</a></li>
-            <li><a href="">Customer 2</a></li>
-        </ul>
-    <%} else {%>
-        <ul>
-            <li><h4>Customers List</h4></li>
-            <li><a href="">Customer 1</a></li>
-            <li><a href="">Customer 2</a></li>
-        </ul>
-   <% } %>
+            <button id="addBtn">Add Customer</button>
+            <ul>
+                <li><a href="">Customer 1</a></li>
+                <li><a href="">Customer 2</a></li>
+            </ul>
+            <%} else {%>
+                <ul>
+                    <li>
+                        <h4>Customers List</h4>
+                    </li>
+                    <li><a href="">Customer 1</a></li>
+                    <li><a href="">Customer 2</a></li>
+                </ul>
+                <% } %>
     </div>
     <div class="customerContent" id="toDisplay" style="display: none;" onclick="toDisplay">
+
         <h2>New Customer Information</h2>
         <div>
             <label for="customerName">Customer Name: </label>
@@ -39,85 +42,86 @@
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>     
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Sales:</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">CAM / Product Engineering</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Drill/Rout</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Process</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Soldermask / Silkscreen</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Process Engineering</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Assembly</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Quality</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
             <p class="infoTitle">Pack & Ship</p>
             <form action="">
                 <textarea name="" id=""></textarea>
                 <div class="filebox">
                     <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>  
+                    <input type="file" id="ex_file">
+                </div>
             </form>
         </div>
         <div id="saveAndcancelBtn">
+
             <button>Save</button>
-            <button>Cancel</button>
+            <input type="button" onclick="history.go()" value="Cancel">
         </div>
     </div>
 </div>
