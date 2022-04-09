@@ -53,7 +53,10 @@ router.get('/feeWhiteBoard', function(req, res, next) {
   router.get('/feeProfile', function(req, res, next) {
     res.render('index', { title: 'FEE Profile', page: 'feeProfile', username: req.user ? req.user.username:'' });
   });
-  
+  //*GET Customer Information page */
+  router.get('/customerInfo', function(req, res, next) {
+    res.render('index', { title: 'Customer Information', page: 'customerInfo',username: req.user ? req.user.username:'' });
+  });
 
 /* GET Route for displaying the login page.*/
 router.get('/login', function(req, res, next) {
