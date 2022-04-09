@@ -11,16 +11,26 @@
         <a aria-current="page" href="/feeJobSearch"><i class="fa-solid fa-magnifying-glass"></i>Job Search</a>
         <a aria-current="page" href="/feeProfile"><i class="fa-solid fa-address-card"></i>Customer Profiles</a>
     </nav>
-    <div class="addCustomer">
+    <div class="addDatasheet">
         <% if(typeof username == 'string' && username) { %>
-        <button  id="addBtn">Add Datasheets</button>
-        <% } %>
+            <button id="addBtn">Add Datasheets</button>
+            <ul>
+                <li><a href="">Datasheet 1</a></li>
+                <li><a href="">Datasheet 2</a></li>
+            </ul>
+        <%} else {%>
+            <ul>
+                <li><h4>Datasheets</h4></li>
+                <li><a href="">Datasheet 1</a></li>
+                <li><a href="">Datasheet 2</a></li>
+            </ul>
+       <% } %>
     </div>
 
-    <div class="customerContent" id="toDisplay" style="display: none;" onclick="toDisplay">
+    <div class="datasheetContent" id="toDisplay" style="display: none;" onclick="toDisplay">
         <h2>New DataSheet Information</h2>
         <div>
-            <label for="customerName"> Datasheet Name: </label>
+            <label for="datasheetName"> Datasheet Name: </label>
             <input type="text" placeholder="Datasheet Name">
             <p></p>
         </div>
