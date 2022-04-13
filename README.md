@@ -19,7 +19,7 @@ There are 10 active users with admin privileges that can add and modify the desi
 
 ## Instructions
 
-Run it using nodemon or node server.js or npm start.
-npm install might need to be run depending on the specification.
+Run it using node server.js or npm start.
+npm install command might need to be run depending on the specification.
 The website will launch on localhost:port on whatever port is defined in server.js
 
