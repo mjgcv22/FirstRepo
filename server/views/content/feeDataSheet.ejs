@@ -18,35 +18,39 @@
                 <li><a href="">Datasheet 1</a></li>
                 <li><a href="">Datasheet 2</a></li>
             </ul>
-        <%} else {%>
-            <ul>
-                <li><h4>Datasheets</h4></li>
-                <li><a href="">Datasheet 1</a></li>
-                <li><a href="">Datasheet 2</a></li>
-            </ul>
-       <% } %>
+            <%} else {%>
+                <ul>
+                    <li>
+                        <h4>Datasheets</h4>
+                    </li>
+                    <li><a href="">Datasheet 1</a></li>
+                    <li><a href="">Datasheet 2</a></li>
+                </ul>
+                <% } %>
     </div>
 
     <div class="datasheetContent" id="toDisplay" style="display: none;" onclick="toDisplay">
         <h2>New DataSheet Information</h2>
-        <div>
-            <label for="datasheetName"> Datasheet Name: </label>
-            <input type="text" placeholder="Datasheet Name">
-            <p></p>
-        </div>
-        <div class="infoContainer">
-            <form action="">
-                <textarea name="" id=""></textarea>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div>
+                <label for="datasheetName"> Datasheet Name: </label>
+                <input type="text" name="name" id="name" placeholder="Datasheet Name">
+                <p></p>
+            </div>
+            <div class="infoContainer">
+                <textarea name="description" id="description"></textarea>
                 <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">      
-                </div>     
-            </form>
-        </div>
-        <div id="saveAndcancelBtn">
-            <button>Save</button>
-            <input type="button" onclick="history.go()" value="Cancel">
-        </div>
-        </div>
+                    <label for="myFile">Attach</label>
+                    <input type="file" name="myFile" id="myFile">
+                </div>
+            </div>
+            <div id="saveAndcancelBtn">
+                <div>
+                    <button type="submit">Save</button>
+                    <input type="button" onclick="history.go()" value="Cancel">
+                </div>
+            </div>
+        </form>
     </div>
+
 </div>
