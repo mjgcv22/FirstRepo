@@ -1,32 +1,26 @@
-// require modules for the Material  Model
+// require modules for the Material DataSheet Model
 let mongoose = require('mongoose');
 
-let MaterialDatasheet = mongoose.Schema(
-    {
-        name:
-        {
+let DataSheet = mongoose.Schema({
+        name: {
             type: String,
             default: '',
             trim: true,
             required: 'name is required'
         },
-        description:
-        {
+        description: {
             type: String,
             default: '',
             trim: true,
         },
-        attachement:
-        {
-            type: String,
+        myFile: {
+            type: String
         }
 
-    },
-    {
+    }, {
         collection: "materialDatasheet"
     }
 
 );
 
-let Model = mongoose_1.default.model("Material", MaterialDatasheet);
-exports.default = Model;
+module.exports.DataSheet = mongoose.model('DataSheet', DataSheet);
