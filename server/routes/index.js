@@ -13,7 +13,7 @@ let storage = multer.diskStorage({
         cb(null, './uploads');
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + "" + Date.now() + "" + file.originalname);
+        cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
     }
 });
 
@@ -26,6 +26,9 @@ let DB = require('../config/db');
 // create the User Model instance
 let userModel = require('../models/user');
 let User = userModel.User; // alias
+
+// create the customer model instance
+let custProf = require('../models/customer');
 
 // create the DataSheet Model 
 let dataSheetModel = require('../models/material');
@@ -87,9 +90,44 @@ router.get('/feePresentation', function(req, res, next) {
 router.get('/feeJobSearch', function(req, res, next) {
     res.render('index', { title: 'FEE Job Search', page: 'feeJobSearch', username: req.user ? req.user.username : '' });
 });
-// *GET FEE profile page
-router.get('/feeProfile', function(req, res, next) {
-    res.render('index', { title: 'FEE Profile', page: 'feeProfile', username: req.user ? req.user.username : '' });
+ // *GET FEE profile page
+ router.get('/feeProfile', function(req, res, next) {
+    custProf.find({}).exec(function(err, data) {
+    if(err) throw err;
+    //res.render('index', { records: items });
+    res.render('index', { title: 'FEE Profile', page: 'feeProfile', records: data, username: req.user ? req.user.username:'' });
+  });
+});
+
+// POST Add Customer Profile to FEE profile page
+router.post('/feeProfile', upload, (req,res, next) => {
+  let body = req.body;
+  //let file = req.file;
+  let cust = new custProf({
+      customerName: body.customerName,
+      genDesc: body.genDesc,
+      salesDesc: body.salesDesc,
+      camDesc: body.camDesc,
+      drillDesc: body.drillDesc,
+      processDesc: body.processDesc,
+      solderDesc: body.solderDesc,
+      processEngDesc: body.processEngDesc,
+      assemblyDesc: body.assemblyDesc,
+      qualityDesc: body.qualityDesc,
+      packDesc: body.packDesc,
+      myFile: req.file.filename
+  });
+  cust.save((err) => {
+    if(err){
+      res.json({ message: err});
+    } else {
+      req.session.message = {
+        type: 'success',
+        message: 'Profile successfully created'
+      };
+      res.redirect('/feeProfile');
+    }
+  })
 });
 //*GET Customer Information page */
 router.get('/customerInfo', function(req, res, next) {

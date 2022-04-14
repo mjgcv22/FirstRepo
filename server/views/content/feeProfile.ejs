@@ -15,113 +15,173 @@
     <div class="addCustomer">
         <% if(typeof username == 'string' && username) { %>
             <button id="addBtn">Add Customer</button>
-            <ul>
-                <li><a href="/customerInfo">Customer 1</a></li>
-                <li><a href="/customerInfo">Customer 2</a></li>
-            </ul>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Customer List</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <%if (records.length > 0){ %>
+                        <% records.forEach(function(row){ %>
+                        <tr>
+                          <td id="myProfile" onclick=displayProfile()><%= row.customerName %></td>
+                        </tr>
+                        <% })}else{ %>
+                          <tr>
+                              <td colspan="6">No Customer Profile available</td>
+                            </tr>
+                        <% } %>
+                </tbody>
+            </table>
             <%} else {%>
-                <ul>
-                    <li>
-                        <h4>Customers List</h4>
-                    </li>
-                    <li><a href="/customerInfo">Customer 1</a></li>
-                    <li><a href="/customerInfo">Customer 2</a></li>
-                </ul>
-                <% } %>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Customer List</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <%if (records.length > 0){ %>
+                            <% records.forEach(function(row){ %>
+                            <tr>
+                              <td id="myProfile" onclick=displayProfile()><%= row.customerName %></td>
+                            </tr>
+                            <% })}else{ %>
+                              <tr>
+                                  <td colspan="6">No Customer Profile available</td>
+                                </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            <% } %>
     </div>
     <div class="customerContent" id="toDisplay" style="display: none;" onclick="toDisplay">
 
         <h2>New Customer Information</h2>
-        <div>
-            <label for="customerName">Customer Name: </label>
-            <input type="text" placeholder=" Customer Name">
-        </div>
         <div class="infoContainer">
-            <p class="infoTitle">General:</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Sales:</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">CAM / Product Engineering</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Drill/Rout</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Process</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Soldermask / Silkscreen</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Process Engineering</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Assembly</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Quality</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
-                </div>
-            </form>
-            <p class="infoTitle">Pack & Ship</p>
-            <form action="">
-                <textarea name="" id=""></textarea>
-                <div class="filebox">
-                    <label for="ex_file">Attach</label>
-                    <input type="file" id="ex_file">
+            <form action="/feeProfile" method="POST" enctype="multipart/form-data">
+                <div class="labels">
+                    <label for="customerName">Customer Name: </label>
+                    <input type="text" placeholder=" Customer Name" id="customerName" name="customerName">
+                    <div>
+                        <label for="genDesc">General: </label>
+                        <textarea name="genDesc" id="genDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="salesDesc">Sales: </label>
+                        <textarea name="salesDesc" id="salesDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="camDesc">CAM/Product Engineering: </label>
+                        <textarea name="camDesc" id="camDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="drillDesc">Drill/Rout: </label>
+                        <textarea name="drillDesc" id="drillDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="processDesc">Process: </label>
+                        <textarea name="processDesc" id="processDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="solderDesc">Soldermask/Silkscreen: </label>
+                        <textarea name="solderDesc" id="solderDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="processEngDesc">Process Engineering: </label>
+                        <textarea name="processEngDesc" id="processEngDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="assemblyDesc">Assembly: </label>
+                        <textarea name="assemblyDesc" id="assemblyDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="qualityDesc">Quality: </label>
+                        <textarea name="qualityDesc" id="qualityDesc"></textarea>
+                    </div>
+
+                    <div>
+                        <label for="packDesc">Pack & Ship: </label>
+                        <textarea name="packDesc" id="packDesc"></textarea>
+                    </div><br>
+
+                    <div class="mb-3">
+                        
+                        <input type="file" id="myFile" name="myFile">
+                    </div><br>
+
+                    <div id="saveAndcancelBtn">
+                        <div>
+                        <button type="submit">Save</button>
+                        <input type="button" onclick="history.go()" value="Cancel">
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
-        <div id="saveAndcancelBtn">
 
-            <button>Save</button>
-            <input type="button" onclick="history.go()" value="Cancel">
+    </div>
+    <div class="customerContent" id="toShow" style="display: none;" onclick="toShow">
+
+        <h2>Customer Information</h2>
+        <div>
+            <h4>Customer Name</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>General</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Sales</h4>
+            <p></p> 
+        </div>
+        <div>
+            <h4>CAM/Product Engineering</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Drill/Rout</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Process</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Soldermask/Silkscreen</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Process Engineering</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Assembly</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Quality</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Pack & Ship</h4>
+            <p></p>
+        </div>
+        <div>
+            <h4>Attachment</h4>
+            <p></p>
         </div>
     </div>
+
+
 </div>

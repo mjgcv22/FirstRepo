@@ -178,10 +178,21 @@ form {
     margin-bottom: 0;
 }
 
+.table th {
+    font-size: 30px;
+}
+
+.table td {
+    font-size: 20px;
+}
+
+.table td:hover {
+    font-size: 25px;
+    cursor: pointer;
+}
+
 #saveAndcancelBtn {
-    margin-bottom: 200px;
-    margin-right: 75px;
-    text-align: right;
+    width: 100%;
 }
 
 #saveAndcancelBtn button {
